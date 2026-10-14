@@ -1,0 +1,77 @@
+1. How to declare a variable in JS and TS?
+->  Variable: storage/container which stores either single or multiple values
+
+	1Syntax for declaring Varaible:
+	-> keyword(var/let/const) variablename = value (in JS)
+		keyword(var/let/const) variablename:datatype(optional) = value (in TS)
+		eg: let abc:number=10 (so in JS ":number" not allowed, but allowed in TS)
+		
+	there are 3 ways in which we can declare a variable in TS and JS:
+	-> a) "var": in modern js we donot use "var" keyword
+			eg- var key=10
+				var key="abk"
+				var key="ume"
+				console.log(key) //op: ume
+	
+		b) "let": if the value of variable can change at any point of time,
+				it is not mandatory(compuslory) to assign a value to a let variable at the time of declaration follow the below eg1	
+			eg1- 
+				let a;
+				console.log(a)//op: undefined	
+				
+			eg- let a=10 
+				a=100; //allowed, no error
+			
+			eg- let m=10;
+				let m=100; //error
+				
+		c) "const": if the value of the variable should not change,
+				it is mandatory(compuslory) to assign a value to a const variable at the time of declaration follow the below eg1	
+			eg1: 
+				const a; //error
+				console.log(a)	
+				
+			eg: const a=10;
+			      a=100; wrong not possible in const //error
+			
+			eg: const m=10;
+				const m=100; // error
+			
+		
+		
+				  
+2. Scope of a variable in JS and TS?
+->  a] Local Scope variable (within india can move freely, no visa of other country so cannot move):
+		when we declare a variable inside {...} and outside the {...} the variable cannot be accessed,
+		eg: {
+				let var1="TS" //local scope variable
+			}
+			console.log(var1) // will get error 
+		
+	b] Global Scope variable (have visa of all country, so can move freely in any of the country):
+		eg: let lang="java"				
+			{
+				console.log(lang)
+			}
+			console.lang(lang)
+		
+		eg: eg: let key="bbk"
+				{
+					let key="aan"
+					console.log(key) //aan
+				}
+				console.log(key) //bbk
+			
+	*var keyword variable have an exception where they only behave as local only inside function(){} and other than that it is global scope
+		eg: function add()
+			{
+				var key="abk";
+			}
+			console.log(key) // will get error in 
+		
+		eg: var key="abk"
+			{
+				var key="update"
+			}
+			console.log(key) //op: update
+	

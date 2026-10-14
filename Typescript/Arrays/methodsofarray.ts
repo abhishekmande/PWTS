@@ -1,0 +1,100 @@
+// let arr:boolean[]=[10,20,30];
+// console.log(arr[0]);
+
+// let arr=[10,20,30,"TS",true,"JS"];
+
+//1. push(): It adds element to the end of array
+// arr.push(50,"Python")
+// console.log(arr)//op: [ 10, 20, 30, 'TS', true, 'JS', 50, 'Python' ]
+
+// //2. pop(): It removes the last element from the array
+// arr.pop()
+// console.log(arr) //op: [ 10, 20, 30, 'TS', true ]
+
+//3. unshift(ele1,ele2,ele3,...): It adds 1element or multiple elements to the begining of an array
+//const browsers=['firefox','safari']
+//browsers=browsers.unshift('chrome','edge')//error, because browsers whixh is of constant keyword is pointng to an array and further it cannot be made to point other array 
+//browsers.unshift('chrome','edge')
+//console.log(browsers)//op: [ 'chrome', 'edge', 'firefox', 'safari' ]
+
+//4. shift(): to remove only 1 element of an array from start
+// let removed=browsers.shift()
+// console.log(removed)//op: firefox
+// console.log(browsers)//op: [safari]
+
+//5. splice(startindex,deleteCount?,...ele?): Remove a element only, or to remove and add new elements to an original array
+//start index: the position from where you want to remove old element and add new elements
+//deleteCOunt: the no of elements to delete, starting with start index from an array
+//...ele: the elements you want to add at start index
+// const browsers=["chrome","safari","firefox","edge"]
+// browsers.splice(1,2,"explorer")
+// console.log(browsers)//op: [ 'chrome', 'explorer', 'edge' ]
+
+// const list=["pen",'pencil','rubber','marker','duster','board']
+// list.splice(0,2)//op: [ 'rubber', 'marker', 'duster', 'board' ]
+// console.log(list)
+/* list.splice(0,1)// op: [ 'pencil', 'rubber', 'marker', 'duster', 'board' ]
+ console.log(list) */
+
+//  const orders=['shirt','tshirt','jeans']
+// orders.splice(1)
+// orders.splice()//OP: ERROR,atleast start index must be given
+// console.log(orders)//op: [shirt]
+
+
+//6. slice(startIndex?,endIndex-1?)? means optional: returns elements from an array but doesnt update the original array
+const browser=["chrome","safari","firefox","edge"]
+// let values=browser.slice()
+// console.log(values)//op: [ 'chrome', 'safari', 'firefox', 'edge' ]
+// console.log(browser)//op: [ 'chrome', 'safari', 'firefox', 'edge' ]
+
+// let values=browser.slice(1)
+// console.log(values)//op: [ 'safari', 'firefox', 'edge' ]
+// console.log(browser)//op: [ 'chrome', 'safari', 'firefox', 'edge' ]
+
+
+// let values=browser.slice(1,3)
+// console.log(values)//op: [ 'safari', 'firefox']
+// console.log(browser)//op: [ 'chrome', 'safari', 'firefox', 'edge' ]
+
+//console.log(browser.slice(3,0));//op: []
+
+
+//7. indexOf(element, startIndex?) left to right: return the index of the first occurence of the element in an array, -1 if element doesnot exist
+ //let arr=[10,40,90,10,10,40]
+// console.log(arr.indexOf(40))//op: 1
+// console.log(arr.indexOf(10,1))//op: 3
+
+    //Interview ques://  Find out all the index of element 10 available inside arr, op: 0,3,4
+    // for(let ele in arr)
+    // {
+    //     if(arr[ele]===10)
+    //         console.log(ele)//op: 0,3,4
+    // }
+
+//8. lastIndexOf(element,startIndex?) Right to left: return the index of last occurrence of an element in an array
+// let arr=[10,40,90,10,10,40]
+// console.log(arr.lastIndexOf(10))//op: 4
+// console.log(arr.lastIndexOf(10,2))//op: 0
+// console.log(arr.lastIndexOf(10,4))//op: 4
+// console.log(arr.lastIndexOf(10,3))//op:3
+
+// //9. includes(element,startIndex?): return true if element is found in the array orelse return false
+//  let arr=[10,40,90,10,10,40]
+// // console.log(arr.includes(100));//op: false
+//  console.log(arr.includes(40))//op: true
+//  console.log(arr.includes(10,3))//op: true
+
+//10. join(separator?): join all the elements of an array and returns as a string 
+// let arr=[20,11,2026]
+// console.log(arr.join("-"))//op: 20-11-2026
+// let res=arr.join("/")
+// console.log(res)//op: 20/11/2026
+// console.log(typeof(res))//op: string
+
+// //11. toString(): convert the array to string
+//let arr=[20,11,2026]
+//console.log(arr.toString())//op: 20,11,2026
+// let str=arr.toString()
+// console.log(typeof(str))//op: string
+

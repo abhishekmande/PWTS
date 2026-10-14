@@ -1,0 +1,58 @@
+Fixture:a global-object(by default available in playwright) available in playwright, which helps us in setting-up(launching of browser) and tear-down(closing of browser) process.
+	
+	TYPES OF FIXTURE: page, browser, context, request: it is used for API testing,
+					  page, browser, context, request these all are global object by default all in playwright so they will be by default available inside test() also.
+					  
+	What is object ?
+	-> object is something which helps in getting some properties or method inside a class.
+	eg:
+		class ABC
+		{
+			constructor(){}
+			
+			print()
+			{
+				console.log("ABCD");
+			}
+			
+		}
+		
+		let abc=new ABC();
+		abc.print()//op: ABCD
+		
+		so inshort: page is object of Page class, browser is object of Browser class, context is object of Context class, request is object of APIRequest class
+		
+		*IMP- but these global object: page, browser, context, request doesnt work as global-object/fixture inside user defined functions it works as global-object/fixture inside test().
+		
+		Exp1- chrome browser is basically the browser fixture and 1tab of that browser is basically the page fixture, 
+				and single tab or multiple tabs also called as browser fixture.
+			
+		Exp2- a. mostly we will be using page-fixture because page-fixture automatically performs opening of the browser and create a single tab/page on the browser,
+				eg: test("PAge fixture", async ({page})=>
+					{
+						await page.goto("https://google.com")
+					})
+		
+			 b. whereas browser-fixture will not be able to do the above step as page-fixture automatically we have to write the couple of lines of code inside the test() to 
+				say the browser-fixture to open the browser and then create the page on that browser,
+				
+				eg: Wrong test-case using browser-fixture:
+					test("Browser Fixture", async ({browser})=>
+					{
+						browser.goto("https://google.com") // error
+					})
+				
+				eg: Correct test-case using browser-fixture:
+					test("Browser Fixture", async ({browser})=>
+					{
+						let context = await browser.newContext() //Here, you are manually creating a BrowserContext using the browser fixture.
+						let page = await context.newPage() //creating a new Page inside the BrowserContext
+					})
+			
+Hooks: 	
+		test.beforeEach(){}: whatever we write inside the {} will be executed once before running each test-case, and insdie the () of beforeEach() we can use page-fixture
+		test.beforeAll(){}: whatever we write inside the {} will be executed once before running all test-cases
+							and insdie the () of beforeAll() we cannot use page-fixture ie:
+							
+							test.beforeAll(async ({page})=>{}) // error
+							test.beforeAll(async ({browser})=>{}) //correct

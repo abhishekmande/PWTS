@@ -1,0 +1,89 @@
+1.Inside this playwright.config.ts file we have mentioned that test-file will be created inside "./test" folder under testDir:'./tests',
+	so inside the tests folder we write the test file:"example.spec.ts" and inside the test file there are different test-cases, below is the example of a test-file: example.spec.ts and inside it test-case:
+	
+	import { test, expect } from '@playwright/test';
+	
+	test('get started link', async ({ page }) => {
+		await page.goto('https://playwright.dev/');
+
+		// Click the get started link.
+		await page.getByRole('link', { name: 'Get started' }).click();
+
+		// Expects page to have a heading with the name of Installation.
+		await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+	});
+
+2. there is a certain rule for giving the name of a test-file:
+	ie "testfilename.spec.ts" or "testfilename.test.ts" other than this 2 if we mention other way:
+	like "testfilename.ts" and on running the "cmd: npx playwright test" we will get error: No tests found
+
+3. on running the the test-file:"example.spec.ts" with test-case:
+	
+	test('get started link', async ({ page }) => {
+		await page.goto('https://playwright.dev/');
+
+		// Click the get started link.
+		await page.getByRole('link', { name: 'Get started' }).click();
+
+		// Expects page to have a heading with the name of Installation.
+		await expect(page.getByRole('heading', { name: 'Installation' })).toBeVisible();
+	});
+	
+	exp1: in this above test-case there is no step which mention on which browser to launch, so this launching the browser is mentioned in the
+		  "playwright.config.ts" file under "projects:[
+										{
+											name:'chromium',
+											use: {...devices['Desktop Chrome']}
+										}]"
+										
+	exp2: but how is the browser launched, with the help of "page" variable which is the argument inside the function ie ({ page }),
+		  this "page" is a global object also known as fixture which is available inside playwright, 
+		  and through this "page" variable we are fruther calling getByRole() and other functions
+	
+	exp3: How to write a playwright test case ?
+			-> So whenever we start writing test-case inside a test-file, the 1st line will be of "import" without this the test file will not run at all:
+			   import { test, expect } from '@playwright/test';
+			   
+			   so this "test" and "expect" variable but in actual they are function, we import them from playwright->test.mjs, so "test variable ie in actual function" helps in writing test case and 
+			   "expect variable ie in actual function" helps in validation/assertion ie test-case which we have perofmed is it matching with expected-result and actual-result
+			   
+			   test() is a function which is by default inbuild function available inside playwright, 
+			   so this test() requires us to pass either 2 or 3 args ie 1st arg: title of test case and 2nd arg: it is basically the function refer below eg:
+			   1st arg 'get started link': this the unqiue name of the test case
+			   2nd arg ({page})=>{} : this is the function, and isnide the {} we write all the steps of testing
+			   
+//IMPORTANT: WHAT IS THIS async-await WRITTEN INSIDE TEST-CASE		   
+-> JS and TS are aysnchronous in nature ie parallel execution and not synchronous ie sequential execution,
+	but when we write the normal JS and TS code so every line of code executed sequentially and not paralley,here JS and TS has the natural ability of convertng the parallel execution of lines of code into sequential order that is why every line of normal js and ts code execute sequentially,
+	but when JS and TS code is integrated with 3rd party tool like playwright then JS and TS natural ability of converting the execution of line of code from parallel to sequential doesnt not work and the lines of code execute parallely which can cause error,
+	so to solve the problem of JS anf TS code integrated with PLaywright code which causes parallel execution we use async-await for sequential execution of lines of code, 
+	so both "async" and "await" go together ie if we only write async and no await then it will not work or we write await but no async then also it will cause error
+	so whenever we define a function we write async beside the () and inside {} we write await for each line of code inside the {} so below wg:
+	
+	/*
+	import { test, expect } from '@playwright/test';
+	
+	test("Title", async function({page})=>
+		{
+			await page.goto("https://practicetestautomation.com/practice-test-login/")
+			await page.locator("#username").fill("student")
+			await page.locator("#password").fill("Password123")
+			await page.locator("#submit").click()
+			await expect(page.getByText("Log out", {exact: true})).toBeVisible()
+	})
+	
+	*/
+	
+	NOTE: await is not to wait for an element to display on the page, await is making sure that the
+		  that the step or line of code should be complete before it moves to the next line of code
+		  so if the line of code is sucess then go to next line of code, and if the line of code is not sucess then the test case fails,
+		  Q. but now the question is how does the await knows the line of code is success or fail?
+		  -> so whenever in the line of code we are using actions ie methods() such as goto(), fill(), click(), toBeVisible() all
+				method having common in them is they returns a action through Promise<>, so the await waits for the Promise<> to notify the await wether the method integrated in each line of code return either pending,sucess, rejected
+				
+				Promise is an object- which notifies different action ie pending, sucessfull, rejected
+				
+	
+	
+										
+	

@@ -1,0 +1,83 @@
+1. Datatype: which defines what type of data a variable is storing
+-> there are 2 types of datatypes:
+	1] Primitve Datatype: only having single value
+		eg: let j=10
+		Primitive datatypes is further classified into:
+			a)number, b)string, c)boolean, d)null, e)undefined, 
+			f)union(|): combination of multiple datatypes eg: (number|string)
+			g)any, h)void: used in function()
+	
+	2] Non Primitive DataType: may have more than 1 value
+		eg: let j=[10,20,30]
+		Non Primitive datatypes is further classified into:
+			a) Array, b) Function,c) String, d) Object- {key:value}
+			
+	
+		1)number:- combination of integer(70.-80) and floating point value(67.999)
+			eg: let num1=90
+				let num2:number=90.45
+			
+					how to check datatype of variable:
+						->typeof: it returns datatype of a variable,
+							eg: console.log(typeof num1)
+								console.log(typeof num2)
+				
+			Q. what is difference between "Type Annotation" and "Type Inference" ?
+				-> Type annotation:-whenever we define the datatype of a variable by ourselves
+						eg: let num2:number=90.45
+						
+					Type Inference:- whenever JS and TS identify the datatype of variable by themselves
+						eg: let num1=10
+						
+		2) string:- sequence of character or combination of character,
+				there are 3 ways in which we can define a string in JS and TS:
+					-> a]Single Quote- '' eg:- let singleQuote='world is hughe',
+						b]Double Quote- "" eg:- let doubleQuote="inout world",
+						
+						c]BackTick- `` 	
+								-> there are 2 main purpose of defining a string using bactick:
+									1] Multiline String: 
+										eg. let multiline=`this 
+																is 
+																	multiline`
+									
+									2] For String parametrization (useful in data driven testing): Calling a variable inside a String
+										eg. let age=20
+												let sent=`your age is ${age}`
+													console.log(sent) //correct
+													
+										eg. // let age=20
+											// let sent='your age is ${age}'
+											// console.log(sent) //wrong
+											
+		3) boolean- true/false
+		eg. let isadmin=false
+		
+		4) undefined: you have defined a variable, but have not assigned a value to it
+				eg: let num4
+				    console.log(num4) //op: undefined
+				
+				eg: const num4 //this will give error, because const requires value to be given to variable
+				
+		5) union (|):
+			eg: let num6:(number|string)=10
+			
+			eg: 
+				let num6:(number|string)='ravi'
+				num6=10
+				num6='kishan'
+				console.log(num6)	//op: kishan
+		
+		6) any- it is free to accept any type of datatypes
+			eg: let num7:any=20
+					num7="ravi"
+					console.log(num7)//ravi			
+			eg: 
+				let age=20
+				age='ravi'
+				console.log(age);//error
+								
+		
+			
+	
+		

@@ -1,0 +1,26 @@
+1. Types of Programing Langauge
+-> there are 2 types of PL, 1. Static PL & 2. Dynamic PL, further each Staitc PL and Dynamic PL has 
+	Functional PL and OOPL
+	
+	what is Static PL and Dynamic PL?
+	-> whenever we write a code, and at the time of writing code it is throwing an error is Static PL,
+	on writing the code and during execution of code if it throws error then it is called Dynamic PL,
+	javascript file is Dynamic PL and typescript file is Static PL
+	Static PL: TS, JAVA, .net
+	Dynamic PL: JS, Python
+	
+	Functional PL: which doesnt require us to create a class, eg: JS, TS, Python
+	OOPL: mandatory to create a class, eg in java to write "System.out.println("test")" we need to write in a class,
+			Java, .net, c#
+	
+2. How do we print something on the console?
+-> Inside JS and TS there is a class known as Console, and these Console class has different methods in it,
+console is basically object of Console class, log() is a method inside Console class and the log() method accepts
+multiple types of data in it and log() prints the message to the console/terminal.
+
+3. How do we execute JS file and TS file
+-> For JS: node pathoffile
+	For TS: tsx pathoffile	
+	
+4. Inside JS and TS, semicolon(;) is not mandatory
+

@@ -1,0 +1,71 @@
+1. Installation of JS/TypeScript
+-> Step1: install Node JS(Node JS helps in executing JS file which has JS code in it, it will not help in executing TS code)
+		
+		-browser: node js download
+		-during installation of node js: in the custom setup dialog box click "Add to path"
+		-how to chek nodejs is installed: got to cmd and type "node --version" or "node -v"
+		-how to execue JS file: node test.js
+		-along with the node js installation npm(node package mamanger) alos gets installed,
+			npm helps in installing any library related to JS and TS, 
+			how to check npm  go to cmd type "npm -v"	
+		
+	Step2: install VS code
+	Step3: install TypeScript:
+	
+		cmd: npm install -g typescript (here -g means globally install typescript in my machine, if we dont mention -g it install typescript within the folder)
+		after typing aboe cmd if you get an issue, use this cmd: Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned
+		cmd to check ts has been installed or not: tsc -v [in tsc, c stands for compiler]
+	
+	Step4: install tsx library- tsx library is used to execute TS file which has ts code in it
+		
+		cmd: npm install -g tsx
+		to check if tsx has been sucessfully installed use cmd: tsx -v
+	
+	for installing a library or tool we use this cmd: npm install libraryame
+	for intailizing framework cmd: npm init frameworkname
+	
+	Step5: to intailize playwright framework
+		cmd: npm init playwright
+		after entering the cmd we get few questions:
+		1. do u want to use ts or js: ts
+		2. wehre to put end-to-end tests? ie (in which folder to put the test cases): tests
+		3. add to github actions workflow?(y/n) :true
+		4. install playwright browsers ie install browsers inside playwright libraries and not in your physical machine: true
+								
+		node_modules: this folder is created once the initilization of playwright is completed in our project folder,
+					so this folder consists of all the installation which playwright has done when we write the cmd: npm init playwright
+		
+		cmd: npm init playwright
+		it may look like you are directly initializing Playwright, but behind the scenes npm is doing the work.
+				In simplified form:
+					npm init playwright@latest
+							↓
+					npm downloads/runs Playwright's setup package
+							↓
+					Playwright setup asks you questions
+							↓
+					Creates Playwright project files
+							↓
+					Installs Playwright packages in node_modules
+
+		So you actually are installing Playwright using Node/npm. The special npm init playwright@latest command just combines multiple setup steps for convenience.
+		
+		For example, without the above initialization helper, you could manually do something like:
+
+					npm init -y
+					npm install -D @playwright/test
+					npx playwright install
+
+					Then you would manually create:
+
+						tests/
+						playwright.config.ts
+
+					But:
+					npm init playwright@latest
+					does most of that setup for you.
+
+	step 6: to run all the test inside "/tests" folder of playwright framework,
+			cmd: npx playwright test
+			
+	headless mode: playwright will run the test cases, without opening the browser

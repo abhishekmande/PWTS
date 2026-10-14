@@ -1,0 +1,46 @@
+git(version control system)- tool used to track the code changes in local system
+github- (one of the version control tool) online platform where git repository are stored and helps us in term of collabartion, inshort we post changes from local to remote repo 
+
+1. You are the first employee to start test automation with no repo available on the github
+-> Step0: create a new repo on the version control tool ie Github
+	Step1: create a project in vs code(local system) and write the test cases inside your local system
+	Step2: In terminal type "git init"- this cmd initalizes the new .git repo inside the local system
+			this above cmd "git init" creates a ".git" folder inside the local system
+	Step 3: in terminal type "git add ." this cmd will add all the files that you have changed/added in local system into in ".git" folder of local system
+	Step4: So now the changes what we have added in the local git ie ".git" now we need to commit the same changes so we use below cmd,	
+			cmd: git commit -m "First Commit"
+			
+	In local,If want to create a new branch and switch to that branch use cmd: git checkout -b branchname, to check branch is created or currently on which branch use cmd: git branch 
+	
+	to connect the local repo to remote repo use cmd:
+		cmd: git remote add origin https://github.com/abhishekmande/gitdemo.git
+		
+	Step5: now to push the changes from local master branch to remote master branch
+		cmd: git push -u origin master
+		
+		
+git branch -M master: This command is mainly used to rename the current branch to master.
+
+
+2. If the repo is available and master branch is also present:
+->		cmd: git clone <repository-url> 
+		cmd: npm install
+
+	Now to create our own branch use cmd: git checkout -b login-automation, and start writing our test cases,
+		once done writting the changes in local system then:
+		cmd1: git status
+		cmd2: git add .
+		cmd3: git commit -m "new changes"
+		cmd4: git checkout master //changing from login-automation branch to master branch
+		cmd5: git pull // pull all changes from remote master branch to local master branch
+		cmd6: git checkout login-automation //again switch back to login-automation branch from master branch
+		cmd7: git rebase master //
+			cmd7.1: git rebase --continue //use this cmd if you get conflict and you resolved the conflict in your local
+			cmd7.2: git add .
+			cmd7.3: git commit -m "resolved conflict"
+			cmd7.4: git rebase --continue	
+		cmd8: git push -u origin login-automation //push the commited changes from login-automation branch to remote login-automation branch
+		Goto github/gitlab/bitbucket and create pr to merge my changes to remote master branch
+	
+		
+		

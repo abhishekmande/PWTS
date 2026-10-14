@@ -1,0 +1,78 @@
+//Operators- Operators is a symbol that perform various operations
+
+1. Arithmetic Operator:
+	a) Addition(+): Addition or concatination
+		eg: let num1=10;
+			let num2='3'
+			console.log(num1+num2)//103 ie 10+'3'
+			// here in the console.log(num1+num2) so the num1 is converted from "number" to
+				"string" datatype which is done by TS and JS this process is called Type Coercion
+				
+				Type Coercion: Implicit(Automatic) conversion of 1 data type to another datatype
+				
+				Type Conversion: Explicit(manual) conversion of 1 data type to another datatype
+					eg. let num2=(Number)'3'
+					
+			//other eg:
+			// let num1=10
+// let num2='3'
+// console.log(num1+num2)//op: 103
+        //(number+string)
+
+// let num1=10;
+// let num2='3'
+// console.log(num1+num2+10+5)// op: 103105
+            //(number+string+string+string)
+
+// let num1=10
+// let num2=5
+// console.log(num1+num2+3+'6')//op: 186
+//         //(number+number+number+string)
+
+// console.log(11+5+'80'+9+10)//op: 1680910
+
+	b)Subtraction(-): eg. let num1=10
+							let num2='3'
+							console.log(num1-num2)//op:7
+
+	c)multiplication(*): console.log(num1*num2)//op:30
+	d)division(/): console.log(num1/num2)//op:3.3333
+	e)modulus(%): console.log(num1%num2)//op:1
+	c)Exponential(**): console.log(2**3)//op:8
+	d) Increment(++):
+
+2. Comparison Operator: checks between 2 values, if there are more than 2 also then also first 2 values are checked
+	a) Equal to(==): checks wether 2 values are same or not
+	
+		eg. let var1 = 10
+			let var2 = 10
+			console.log(var1 == var2) //op: true
+
+		eg. let var1=10
+			let var2="10"
+			console.log(var1==var2)//op: true
+			//JS or TS will Implicitly convert var2 from string to number
+			
+		eg. let var1=10
+			let var2="TS"
+			console.log(var1==var2)//op: false
+			
+	b) Not Equal to(!=)
+	c) Strict Equal to (===): check if the 2 values along with the datatype of variable are same or not
+			eg. let var1=10
+				let var2="10"
+				console.log(var1===var2)//op: false
+							
+	d) Strict Not Equal to (!==): 
+			eg. let var1=10
+				let var2="10"
+				console.log(var1!==var2)//op: true
+				
+	e) Greater than (>)
+	f) greater than or equal to (>=)
+	g) less than (<)
+	h) less than or equal (<=)
+
+			
+					
+					
